@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-class APICall extends Component {
+export default class APICall extends Component {
     constructor() {
         super()
 

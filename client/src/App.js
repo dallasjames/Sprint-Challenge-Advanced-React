@@ -1,12 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import APICall from './classFetchPlayers';
+import useDarkMode from './hooks/Darkmode';
+
+const Navbar = () => {
+  const [darkMode, setDarkMode] = useDarkMode();
+  const toggleMode = e => {
+    e.preventDefault();
+    setDarkMode(!darkMode);
+  };
 
 function App() {
   return (
-    <div className="App">
-     
-    </div>
+    <div onClick={toggleMode} className={darkMode ? 'darkMode' : 'toggle'}>Dark Mode</div>
+    <APICall />
   );
 }
 
