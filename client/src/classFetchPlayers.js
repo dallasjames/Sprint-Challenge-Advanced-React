@@ -1,35 +1,41 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React  from 'react';
 
-export default class APICall extends Component {
+
+class PlayerList extends React.Component {
     constructor() {
-        super()
-
+        super(); 
         this.state = {
-            players: []
+            players: [],
         };
-    }
-
+       }
+  
+  
     componentDidMount() {
-        axios.get(`https://http://localhost:5000/api/players`)
-            .then(res => this.setState({players: players}))
-            .catch(err => console.log(err))
+      fetch('http://localhost:5000/api/players')
+     
+        .then(res => res.json())
+        
+        .then(players => this.setState({players: players}))
+        .catch(err => console.log("noooo: ", err))
     }
-
-    render() {
-        const {players} = this.state;
-        console.log(players)
-
-        return (
-            <div>
-                {players.map(player => 
-                    <div key={player.id}>
-                        <h2>{player.name}</h2>
-                        <h3>Country: {player.country}</h3>
-                        <h3>Serches: {player.searches}</h3>
-                    </div>
-                    )}
+  
+ render() {
+         const {players} = this.state;
+         console.log(players)
+      
+return (
+        
+            <div data-testid="playerList" className="player-list">
+              {players.map(player =>
+                <div className="player-card" key={player.id}>
+                  <h3>{player.name}</h3> 
+                  <p>Country: {player.country}</p>
+                  <p>Searches: {player.searches}</p>
+                  
+                </div>
+              )}
             </div>
-        )
+          );
+        }
     }
-}
+    export default PlayerList;

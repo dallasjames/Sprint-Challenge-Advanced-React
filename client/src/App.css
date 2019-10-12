@@ -31,3 +31,30 @@
     transform: rotate(360deg);
   }
 }
+
+div {
+  text-align: center;
+}
+
+.dark-mode {
+  display: flex;
+  justify-content: space-evenly;
+  background: black;
+  color: white;
+}
+
+.dark-mode .player-card {
+  background: gray;
+  margin: 1rem;
+  border: 5px solid white;
+}
+
+.toggle {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.toggle .player-card {
+  margin: 1rem;
+  border: 5px solid black;
+}
