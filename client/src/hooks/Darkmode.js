@@ -6,7 +6,7 @@ const useDarkMode = () => {
 
     useEffect(() => {
         darkMode ? document.body.classList.add('dark-mode') : document.body.classList.remove('dark-mode')
-    }, [setDarkMode])
+    }, [setDarkMode, darkMode])
 
     return [darkMode, setDarkMode]
 }

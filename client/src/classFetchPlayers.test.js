@@ -5,7 +5,7 @@ import PlayerList from "./classFetchPlayers";
 
 afterEach(rtl.cleanup);
 
-test("renders?", () => {
-    const list = rtl.render(<PlayerList />)
-    list.debug()
+test("renders players", () => {
+    const { getByTestId } = rtl.render(<PlayerList />)
+    getByTestId("playerList")
 });
